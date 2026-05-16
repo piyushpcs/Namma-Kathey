@@ -55,13 +55,13 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<View>(R.id.btnDistrictMap).setOnClickListener {
             startActivity(Intent(this, DistrictHeroesActivity::class.java).apply {
-                putExtra("district_name", "Mysuru")
+                putExtra("district_name", "Haveri")
             })
         }
 
         findViewById<View>(R.id.btnQuiz).setOnClickListener {
             startActivity(Intent(this, DistrictHeroesActivity::class.java).apply {
-                putExtra("district_name", "Dakshina Kannada")
+                putExtra("district_name", "Udupi")
             })
         }
 
@@ -125,6 +125,15 @@ class MainActivity : AppCompatActivity() {
         val btnProfile = findViewById<TextView>(R.id.btnProfile)
         val btnAllHeroes = findViewById<Button>(R.id.btnAllHeroes)
 
+        // Dynamic counts
+        val countBengaluru = heroes.count { it.district == "Bengaluru" }
+        val countHaveri = heroes.count { it.district == "Haveri" }
+        val countUdupi = heroes.count { it.district == "Udupi" }
+
+        findViewById<TextView>(R.id.tvBengaluruCount).text = "$countBengaluru ${if (countBengaluru == 1) "Story" else "Stories"}"
+        findViewById<TextView>(R.id.tvHaveriCount).text = "$countHaveri ${if (countHaveri == 1) "Story" else "Stories"}"
+        findViewById<TextView>(R.id.tvUdupiCount).text = "$countUdupi ${if (countUdupi == 1) "Story" else "Stories"}"
+
         if (isKannada) {
             tvGreeting.text = "ನಮಸ್ಕಾರ! 👋"
             tvAppName.text = "ನಮ್ಮ ಕಥೆ"
@@ -136,7 +145,7 @@ class MainActivity : AppCompatActivity() {
             labelView.text = "ಜಿಲ್ಲೆಗಳನ್ನು ಅನ್ವೇಷಿಸಿ"
             btnProfile.text = "ಪಿ"
             tvExploreAll.text = "ಬೆಂಗಳೂರು"
-            tvDistrictMap.text = "ಮೈಸೂರು"
+            tvDistrictMap.text = "ಹಾವೇರಿ"
             tvQuiz.text = "ಉಡುಪಿ"
             btnAllHeroes.text = "ಎಲ್ಲಾ ವೀರರನ್ನು ಅನ್ವೇಷಿಸಿ →"
             btnTimeline.text = "ಇತಿಹಾಸ ಕಾಲಸೂಚಿ 📜"
@@ -151,7 +160,7 @@ class MainActivity : AppCompatActivity() {
             labelView.text = "Discover Districts"
             btnProfile.text = "JD"
             tvExploreAll.text = "Bengaluru"
-            tvDistrictMap.text = "Mysuru"
+            tvDistrictMap.text = "Haveri"
             tvQuiz.text = "Udupi"
             btnAllHeroes.text = "Explore All Heroes →"
             btnTimeline.text = "View History Timeline 📜"
