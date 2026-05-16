@@ -23,6 +23,8 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var tvScore: TextView
     private lateinit var tvResult: TextView
     private lateinit var btnNext: Button
+    private lateinit var resultArea: View
+    private lateinit var quizProgress: android.widget.ProgressBar
     private lateinit var badgeCard: CardView
     private lateinit var tvBadgeTitle: TextView
     private lateinit var tvBadgeEmoji: TextView
@@ -41,6 +43,8 @@ class QuizActivity : AppCompatActivity() {
         tvScore = findViewById(R.id.tvScore)
         tvResult = findViewById(R.id.tvResult)
         btnNext = findViewById(R.id.btnNext)
+        resultArea = findViewById(R.id.resultArea)
+        quizProgress = findViewById(R.id.quizProgress)
         badgeCard = findViewById(R.id.badgeCard)
         tvBadgeTitle = findViewById(R.id.tvBadgeTitle)
         tvBadgeEmoji = findViewById(R.id.tvBadgeEmoji)
@@ -71,13 +75,14 @@ class QuizActivity : AppCompatActivity() {
 
     private fun loadQuestion() {
         answered = false
-        tvResult.visibility = View.GONE
-        btnNext.visibility = View.GONE
+        resultArea.visibility = View.GONE
         badgeCard.visibility = View.GONE
+        options.forEach { it.visibility = View.VISIBLE }
 
         val hero = quizHeroes[currentIndex]
         tvQuestionNumber.text = "Question ${currentIndex + 1} of ${quizHeroes.size}"
         tvScore.text = "Score: $score | Question ${currentIndex + 1}/${quizHeroes.size}"
+        quizProgress.progress = ((currentIndex + 1) * 100) / quizHeroes.size
 
         val questionType = currentIndex % 3
         val correctAnswer: String
@@ -131,30 +136,32 @@ class QuizActivity : AppCompatActivity() {
             selected.backgroundTintList = android.content.res.ColorStateList.valueOf(
                 android.graphics.Color.parseColor("#4CAF50"))
             selected.setTextColor(android.graphics.Color.WHITE)
-            tvResult.text = "✅ Correct!"
+            tvResult.text = "✅ Correct! Great job!"
             tvResult.setTextColor(android.graphics.Color.parseColor("#4CAF50"))
         } else {
             selected.backgroundTintList = android.content.res.ColorStateList.valueOf(
                 android.graphics.Color.parseColor("#F44336"))
             selected.setTextColor(android.graphics.Color.WHITE)
-            tvResult.text = "❌ Wrong! Answer: $correct"
+            tvResult.text = "❌ Not quite! Correct: $correct"
             tvResult.setTextColor(android.graphics.Color.parseColor("#F44336"))
             options.find { it.text == correct }?.let {
                 it.backgroundTintList = android.content.res.ColorStateList.valueOf(
-                    android.graphics.Color.parseColor("#4CAF50"))
-                it.setTextColor(android.graphics.Color.WHITE)
+                    android.graphics.Color.parseColor("#E8F5E9")) // Light green
+                it.setTextColor(android.graphics.Color.parseColor("#4CAF50"))
             }
         }
 
         tvScore.text = "Score: $score | Question ${currentIndex + 1}/${quizHeroes.size}"
-        tvResult.visibility = View.VISIBLE
-        btnNext.text = if (currentIndex < quizHeroes.size - 1) "Next Question ➡️" else "See Results 🏆"
-        btnNext.visibility = View.VISIBLE
+        resultArea.visibility = View.VISIBLE
+        btnNext.text = if (currentIndex < quizHeroes.size - 1) "Next Question →" else "See Results 🏆"
     }
 
     private fun showFinalScore() {
-        btnNext.visibility = View.GONE
-        tvResult.visibility = View.GONE
+        resultArea.visibility = View.GONE
+        tvQuestionNumber.visibility = View.GONE
+        tvQuestion.visibility = View.GONE
+        options.forEach { it.visibility = View.GONE }
+        quizProgress.progress = 100
 
         // Determine badge
         val emoji: String
