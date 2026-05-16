@@ -1,51 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp">
+    android:orientation="vertical"
+    android:padding="32dp">
 
-    <!-- Emoji Illustration -->
+    <!-- Emoji Illustration with background -->
     <TextView
         android:id="@+id/tvStoryEmoji"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/icon_button_bg"
+        android:backgroundTint="#40FFFFFF"
+        android:gravity="center"
         android:text="⚔️"
-        android:textSize="80sp"
-        android:layout_marginBottom="24dp"/>
+        android:textSize="80sp" />
 
     <!-- Story Card -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="8dp">
+        app:cardCornerRadius="32dp"
+        app:cardElevation="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="32dp">
 
             <TextView
                 android:id="@+id/tvStoryPageTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chapter 1"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#1F4E79"
-                android:layout_marginBottom="12dp"/>
+                android:layout_marginBottom="16dp"
+                android:text="Part 1"
+                android:textColor="@color/brand_mustard"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvStoryPageText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.5"
                 android:text="Story text here"
-                android:textSize="17sp"
-                android:textColor="#333333"
-                android:lineSpacingMultiplier="1.7"
-                android:textAlignment="center"/>
+                android:textColor="@color/text_black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

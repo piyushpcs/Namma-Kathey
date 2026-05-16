@@ -22,19 +22,19 @@ class StorybookActivity : AppCompatActivity() {
     private lateinit var tvPageCount: TextView
     private lateinit var btnPrev: Button
     private lateinit var btnNext: Button
-    private lateinit var btnSpeak: Button
+    private lateinit var btnSpeak: TextView
     private lateinit var pages: List<StoryPage>
     private lateinit var tts: TextToSpeech
     private var isSpeaking = false
     private var isKannada = false
 
     private val bgColors = listOf(
-        Color.parseColor("#1F4E79"),
-        Color.parseColor("#1B5E20"),
-        Color.parseColor("#4A148C"),
-        Color.parseColor("#BF360C"),
-        Color.parseColor("#004D40"),
-        Color.parseColor("#1A237E")
+        Color.parseColor("#2C5F91"), // Brand Blue
+        Color.parseColor("#E67E22"), // Orange
+        Color.parseColor("#43A047"), // Green
+        Color.parseColor("#7B1FA2"), // Purple
+        Color.parseColor("#D4A017"), // Mustard
+        Color.parseColor("#C0392B")  // Red
     )
 
     private val emojis = mapOf(
@@ -153,8 +153,8 @@ class StorybookActivity : AppCompatActivity() {
         hero: Hero
     ): List<StoryPage> {
         val sentences = story.split(". ").filter { it.isNotBlank() }
-        val chunkSize = 2
-        val chunks = sentences.chunked(chunkSize) { it.joinToString(". ") + "." }
+        // One sentence per page for maximum engagement/illustrations
+        val chunks = sentences.map { it.trim().removeSuffix(".") + "." }
 
         val categoryEmojis = emojis[category] ?: emojis["Freedom Fighter"]!!
         val pages = mutableListOf<StoryPage>()
@@ -171,7 +171,7 @@ class StorybookActivity : AppCompatActivity() {
         chunks.forEachIndexed { index, chunk ->
             pages.add(StoryPage(
                 emoji = categoryEmojis[(index + 1) % categoryEmojis.size],
-                title = if (isKannada) "ಅಧ್ಯಾಯ ${index + 1}" else "Chapter ${index + 1}",
+                title = if (isKannada) "ಭಾಗ ${index + 1}" else "Part ${index + 1}",
                 text = chunk,
                 bgColor = bgColors[(index + 1) % bgColors.size]
             ))
@@ -213,7 +213,9 @@ class StorybookActivity : AppCompatActivity() {
 
     private fun updateNavButtons(position: Int) {
         btnPrev.visibility = if (position == 0) View.INVISIBLE else View.VISIBLE
-        btnNext.text = if (position == pages.size - 1) "Finish 🎉" else "Next ▶"
+        btnNext.text = if (position == pages.size - 1) 
+            (if (isKannada) "ಮುಗಿಸಿ 🎉" else "Finish 🎉") 
+            else (if (isKannada) "ಮುಂದೆ →" else "Next →")
     }
 
     private fun loadHeroes(): List<Hero> {
