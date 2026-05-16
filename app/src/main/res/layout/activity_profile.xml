@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0F4F8">
+    android:background="@color/bg_off_white"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,33 +15,37 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#1F4E79"
-            android:padding="24dp"
+            android:background="#2C5F91"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="32dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/icon_button_bg"
+                android:backgroundTint="#40FFFFFF"
+                android:gravity="center"
                 android:text="👤"
-                android:textSize="52sp"/>
+                android:textSize="50sp" />
 
             <TextView
                 android:id="@+id/tvProfileName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:text="Hero Explorer"
                 android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"/>
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="Karnataka History Enthusiast"
                 android:textColor="#B0C4DE"
-                android:textSize="13sp"/>
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -47,53 +53,60 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="16dp">
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                android:elevation="4dp">
+                android:layout_weight="1"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:background="#2C5F91"
                     android:gravity="center"
-                    android:padding="16dp"
-                    android:background="#1F4E79">
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
                     <TextView
                         android:id="@+id/tvTotalQuizzes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
+                        android:text="6"
                         android:textColor="#FFFFFF"
                         android:textSize="28sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="Quizzes\nTaken"
                         android:textColor="#B0C4DE"
-                        android:textSize="12sp"
-                        android:gravity="center"/>
+                        android:textSize="11sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                android:elevation="4dp">
+                android:layout_weight="1"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:background="#43A047"
                     android:gravity="center"
-                    android:padding="16dp"
-                    android:background="#2E7D32">
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
                     <TextView
                         android:id="@+id/tvTotalBookmarks"
                         android:layout_width="wrap_content"
@@ -101,14 +114,15 @@
                         android:text="0"
                         android:textColor="#FFFFFF"
                         android:textSize="28sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="Heroes\nBookmarked"
                         android:textColor="#C8E6C9"
-                        android:textSize="12sp"
-                        android:gravity="center"/>
+                        android:textSize="11sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -116,29 +130,33 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:elevation="4dp">
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:background="#7B1FA2"
                     android:gravity="center"
-                    android:padding="16dp"
-                    android:background="#6A1B9A">
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
                     <TextView
                         android:id="@+id/tvBestScore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0/3"
+                        android:text="2/3"
                         android:textColor="#FFFFFF"
                         android:textSize="28sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="Best\nScore"
                         android:textColor="#E1BEE7"
-                        android:textSize="12sp"
-                        android:gravity="center"/>
+                        android:textSize="11sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -148,55 +166,56 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🏅 My Heritage Badge"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#1F4E79"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            android:text="🏅 My Heritage Badge"
+            android:textColor="#2C5F91"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="16dp"
-            android:elevation="6dp">
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:id="@+id/badgeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:background="@drawable/quest_card_bg"
                 android:gravity="center"
-                android:padding="24dp"
-                android:background="@drawable/gradient_card">
+                android:orientation="vertical"
+                android:padding="32dp">
 
                 <TextView
                     android:id="@+id/tvProfileBadgeEmoji"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🔒"
-                    android:textSize="60sp"/>
+                    android:text="🥈"
+                    android:textSize="70sp" />
 
                 <TextView
                     android:id="@+id/tvProfileBadgeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No Badge Yet"
+                    android:layout_marginTop="16dp"
+                    android:text="Silver Heritage Badge!"
                     android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="12dp"/>
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvProfileBadgeDesc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Take the Hero Quiz to earn your badge!"
-                    android:textColor="#E0E0E0"
-                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:layout_marginTop="8dp"/>
+                    android:text="👏 Great job! You are a Karnataka History Explorer!"
+                    android:textColor="#F0F0F0"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -206,30 +225,32 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🔖 Bookmarked Heroes"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#1F4E79"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            android:text="🔖 Bookmarked Heroes"
+            android:textColor="#2C5F91"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerBookmarks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:nestedScrollingEnabled="false"/>
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:paddingHorizontal="8dp"
+            android:paddingBottom="16dp" />
 
         <TextView
             android:id="@+id/tvNoBookmarks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No bookmarks yet!\nRead a hero story and bookmark it 🔖"
-            android:textSize="14sp"
-            android:textColor="#888888"
             android:gravity="center"
-            android:padding="24dp"
-            android:visibility="gone"/>
+            android:padding="32dp"
+            android:text="No bookmarks yet!\nRead a hero story and bookmark it 🔖"
+            android:textColor="@color/text_grey"
+            android:textSize="14sp"
+            android:visibility="gone" />
 
     </LinearLayout>
 </ScrollView>
