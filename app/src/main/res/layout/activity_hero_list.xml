@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1F4E79"
+        android:padding="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All Heroes"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Explore Karnataka's legends"
+            android:textColor="#B0C4DE"
+            android:textSize="13sp"/>
+
+        <!-- Search Bar -->
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/search_background"
+            android:hint="Search heroes..."
+            android:textColorHint="#888888"
+            android:textColor="#000000"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="10dp"
+            android:inputType="text"/>
+
+    </LinearLayout>
+
+    <!-- Filter Chips -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnFilterAll"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="All"
+                android:textSize="12sp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#1F4E79"
+                android:textColor="#FFFFFF"/>
+
+            <Button
+                android:id="@+id/btnFilterFreedom"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Freedom Fighters"
+                android:textSize="12sp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#E0E0E0"
+                android:textColor="#333333"/>
+
+            <Button
+                android:id="@+id/btnFilterPoet"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Poets"
+                android:textSize="12sp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#E0E0E0"
+                android:textColor="#333333"/>
+
+            <Button
+                android:id="@+id/btnFilterReformer"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Social Reformers"
+                android:textSize="12sp"
+                android:backgroundTint="#E0E0E0"
+                android:textColor="#333333"/>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewHeroes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:clipToPadding="false"/>
+
+</LinearLayout>

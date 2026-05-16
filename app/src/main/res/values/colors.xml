@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="brand_mustard">#D4A017</color>
+    <color name="bg_off_white">#FAFAFA</color>
+    <color name="text_grey">#757575</color>
+    <color name="text_black">#212121</color>
+    <color name="card_blue">#EBF5FF</color>
+    <color name="card_orange">#FFF4E6</color>
+    <color name="card_yellow">#FFFDE7</color>
+    <color name="card_pink">#FFEBF0</color>
+    <color name="card_green">#E9FBE9</color>
+    <color name="quest_gradient_start">#FF8A65</color>
+    <color name="quest_gradient_end">#F4511E</color>
+</resources>

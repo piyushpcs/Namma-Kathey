@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/bg_off_white">
+
+    <TextView
+        android:id="@+id/tvSplashTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ನಮ್ಮ ಕಥೆ"
+        android:textColor="@color/brand_mustard"
+        android:textSize="52sp"
+        android:textStyle="bold"
+        android:alpha="0" />
+
+    <TextView
+        android:id="@+id/tvSplashSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Namma Kathey"
+        android:textColor="@color/text_black"
+        android:textSize="20sp"
+        android:layout_marginTop="12dp"
+        android:alpha="0" />
+
+    <TextView
+        android:id="@+id/tvSplashTagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Heroes of Karnataka"
+        android:textColor="@color/text_grey"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        android:alpha="0" />
+
+</LinearLayout>
