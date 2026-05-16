@@ -39,7 +39,7 @@ class DistrictAdapter(private val districts: List<District>) :
         val district = districts[position]
         holder.tvEmoji.text = district.emoji
         holder.tvName.text = district.name
-        holder.tvCount.text = "${district.heroCount} Hero${if (district.heroCount > 1) "s" else ""}"
+        holder.tvCount.text = "${district.heroCount} ${if (district.heroCount == 1) "Hero" else "Stories"}"
         holder.bg.setBackgroundColor(Color.parseColor(district.color))
 
         // Entrance animation

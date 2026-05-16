@@ -19,24 +19,25 @@ class DistrictMapActivity : AppCompatActivity() {
         // Group heroes by district and count
         val districtMap = allHeroes.groupBy { it.district }
 
-        // District info with emoji and color
+        // District info with emoji and color (using softer, pastel colors)
         val districtInfo = mapOf(
-            "Dharwad" to Pair("⚔️", "#1F4E79"),
-            "Belagavi" to Pair("👑", "#2E7D32"),
-            "Shivamogga" to Pair("📜", "#4A148C"),
-            "Chikkamagaluru" to Pair("🌿", "#1B5E20"),
-            "Bagalkot" to Pair("🕊️", "#BF360C"),
-            "Bengaluru" to Pair("🏙️", "#004D40"),
-            "Chitradurga" to Pair("🏰", "#827717"),
-            "Mysuru" to Pair("🐯", "#E65100"),
-            "Kalaburagi" to Pair("✊", "#880E4F"),
-            "Dakshina Kannada" to Pair("🌊", "#006064"),
-            "Hassan" to Pair("🏛️", "#1A237E"),
-            "Shivamogga" to Pair("🌸", "#4A148C")
+            "Dharwad" to Pair("⚔️", "#EBF5FF"), // Soft Blue
+            "Belagavi" to Pair("👑", "#E9FBE9"), // Soft Green
+            "Shivamogga" to Pair("📜", "#F3E5F5"), // Soft Purple
+            "Chikkamagaluru" to Pair("🌿", "#E8F5E9"), // Soft Green
+            "Bagalkot" to Pair("🕊️", "#FFF4E6"), // Soft Orange
+            "Bengaluru" to Pair("🏙️", "#E0F2F1"), // Soft Teal
+            "Chitradurga" to Pair("🏰", "#FFF9C4"), // Soft Yellow
+            "Mysuru" to Pair("🐯", "#FFF3E0"), // Soft Orange
+            "Kalaburagi" to Pair("✊", "#FFEBF0"), // Soft Pink
+            "Dakshina Kannada" to Pair("🌊", "#E1F5FE"), // Soft Light Blue
+            "Hassan" to Pair("🏛️", "#E8EAF6"), // Soft Indigo
+            "Kolar" to Pair("🏛️", "#F1F8E9"), // Soft Light Green
+            "Haveri" to Pair("🏛️", "#FFFDE7") // Soft Yellow
         )
 
         val districts = districtMap.map { (districtName, heroes) ->
-            val info = districtInfo[districtName] ?: Pair("🏛️", "#1F4E79")
+            val info = districtInfo[districtName] ?: Pair("🏛️", "#FAFAFA")
             District(
                 name = districtName,
                 emoji = info.first,
