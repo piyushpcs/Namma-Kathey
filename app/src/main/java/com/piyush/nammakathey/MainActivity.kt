@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         updateUI()
 
-        findViewById<Button>(R.id.btnLangToggle).setOnClickListener {
+        findViewById<View>(R.id.btnLangToggle).setOnClickListener {
             isKannada = !isKannada
             getSharedPreferences("settings", MODE_PRIVATE)
                 .edit().putBoolean("is_kannada", isKannada).apply()
@@ -44,15 +44,25 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<View>(R.id.btnExploreAll).setOnClickListener {
+            startActivity(Intent(this, DistrictHeroesActivity::class.java).apply {
+                putExtra("district_name", "Bengaluru")
+            })
+        }
+
+        findViewById<View>(R.id.btnAllHeroes).setOnClickListener {
             startActivity(Intent(this, HeroListActivity::class.java))
         }
 
         findViewById<View>(R.id.btnDistrictMap).setOnClickListener {
-            startActivity(Intent(this, DistrictMapActivity::class.java))
+            startActivity(Intent(this, DistrictHeroesActivity::class.java).apply {
+                putExtra("district_name", "Mysuru")
+            })
         }
 
         findViewById<View>(R.id.btnQuiz).setOnClickListener {
-            startActivity(Intent(this, QuizActivity::class.java))
+            startActivity(Intent(this, DistrictHeroesActivity::class.java).apply {
+                putExtra("district_name", "Dakshina Kannada")
+            })
         }
 
         findViewById<View>(R.id.btnTimeline).setOnClickListener {
@@ -70,6 +80,18 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.btnStartQuest)?.setOnClickListener {
             startActivity(Intent(this, QuizActivity::class.java))
         }
+
+        findViewById<EditText>(R.id.etSearch).setOnEditorActionListener { v, actionId, event ->
+            val query = v.text.toString()
+            if (query.isNotEmpty()) {
+                startActivity(Intent(this, HeroListActivity::class.java).apply {
+                    putExtra("search_query", query)
+                })
+                true
+            } else {
+                false
+            }
+        }
     }
 
     override fun onResume() {
@@ -80,7 +102,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateUI() {
-        val toggleBtn = findViewById<Button>(R.id.btnLangToggle)
+        val toggleBtn = findViewById<TextView>(R.id.btnLangToggle)
         val nameView = findViewById<TextView>(R.id.tvHeroOfDayName)
         val districtView = findViewById<TextView>(R.id.tvHeroOfDayDistrict)
         val labelView = findViewById<TextView>(R.id.tvHeroOfDayLabel)
@@ -95,7 +117,8 @@ class MainActivity : AppCompatActivity() {
         val tvDistrictMap = findViewById<TextView>(R.id.tvDistrictMap)
         val tvQuiz = findViewById<TextView>(R.id.tvQuiz)
         val tvTimeline = findViewById<TextView>(R.id.tvTimeline)
-        val btnProfile = findViewById<Button>(R.id.btnProfile)
+        val btnProfile = findViewById<TextView>(R.id.btnProfile)
+        val btnAllHeroes = findViewById<Button>(R.id.btnAllHeroes)
 
         if (isKannada) {
             tvGreeting.text = "ನಮಸ್ಕಾರ! 👋"
@@ -110,6 +133,7 @@ class MainActivity : AppCompatActivity() {
             tvExploreAll.text = "ಬೆಂಗಳೂರು"
             tvDistrictMap.text = "ಮೈಸೂರು"
             tvQuiz.text = "ಉಡುಪಿ"
+            btnAllHeroes.text = "ಎಲ್ಲಾ ವೀರರನ್ನು ಅನ್ವೇಷಿಸಿ →"
         } else {
             tvGreeting.text = "Namaskara! 👋"
             tvAppName.text = "Namma Kathey"
@@ -123,6 +147,7 @@ class MainActivity : AppCompatActivity() {
             tvExploreAll.text = "Bengaluru"
             tvDistrictMap.text = "Mysuru"
             tvQuiz.text = "Udupi"
+            btnAllHeroes.text = "Explore All Heroes →"
         }
     }
 

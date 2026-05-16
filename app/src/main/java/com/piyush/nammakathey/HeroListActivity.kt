@@ -30,13 +30,22 @@ class HeroListActivity : AppCompatActivity() {
         isKannada = getSharedPreferences("settings", MODE_PRIVATE)
             .getBoolean("is_kannada", false)
 
+        val initialSearch = intent.getStringExtra("search_query") ?: ""
+        searchQuery = initialSearch
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewHeroes)
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = HeroAdapter(allHeroes, isKannada)
         recyclerView.adapter = adapter
 
+        val etSearch = findViewById<EditText>(R.id.etSearch)
+        if (initialSearch.isNotEmpty()) {
+            etSearch.setText(initialSearch)
+            applyFilter()
+        }
+
         // Search
-        findViewById<EditText>(R.id.etSearch).addTextChangedListener(object : TextWatcher {
+        etSearch.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 searchQuery = s.toString()
                 applyFilter()

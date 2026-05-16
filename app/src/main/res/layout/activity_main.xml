@@ -48,31 +48,41 @@
                 android:layout_centerVertical="true"
                 android:orientation="horizontal">
 
-                <Button
+                <TextView
                     android:id="@+id/btnLangToggle"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/icon_button_bg"
+                    android:gravity="center"
                     android:text="ಕ"
                     android:textColor="@color/text_black"
-                    android:textSize="16sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
 
-                <View
+                <TextView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginEnd="8dp"
-                    android:background="@drawable/icon_button_bg" />
+                    android:background="@drawable/icon_button_bg"
+                    android:gravity="center"
+                    android:text="🔔"
+                    android:textSize="16sp" />
 
-                <Button
+                <TextView
                     android:id="@+id/btnProfile"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/icon_button_bg"
+                    android:gravity="center"
                     android:text="JD"
                     android:textColor="@color/brand_mustard"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
             </LinearLayout>
         </RelativeLayout>
 
@@ -330,6 +340,19 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </GridLayout>
+
+        <Button
+            android:id="@+id/btnAllHeroes"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/brand_mustard"
+            android:text="Explore All Heroes →"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp" />
 
         <!-- Weekly Quest -->
         <androidx.cardview.widget.CardView

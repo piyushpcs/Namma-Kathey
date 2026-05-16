@@ -3,17 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5">
+    android:background="@color/bg_off_white">
 
     <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#1F4E79"
+        android:background="#2C5F91"
         android:padding="20dp"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvListTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="All Heroes"
@@ -22,6 +23,7 @@
             android:textStyle="bold"/>
 
         <TextView
+            android:id="@+id/tvListSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Explore Karnataka's legends"
@@ -32,14 +34,16 @@
         <EditText
             android:id="@+id/etSearch"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/search_background"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/search_bg"
             android:hint="Search heroes..."
             android:textColorHint="#888888"
             android:textColor="#000000"
             android:paddingHorizontal="16dp"
-            android:paddingVertical="10dp"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:drawablePadding="12dp"
+            android:textSize="14sp"
             android:inputType="text"/>
 
     </LinearLayout>
@@ -63,8 +67,9 @@
                 android:layout_height="36dp"
                 android:text="All"
                 android:textSize="12sp"
+                android:textAllCaps="false"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="#1F4E79"
+                android:backgroundTint="#2C5F91"
                 android:textColor="#FFFFFF"/>
 
             <Button
@@ -73,6 +78,7 @@
                 android:layout_height="36dp"
                 android:text="Freedom Fighters"
                 android:textSize="12sp"
+                android:textAllCaps="false"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="#E0E0E0"
                 android:textColor="#333333"/>
@@ -83,6 +89,7 @@
                 android:layout_height="36dp"
                 android:text="Poets"
                 android:textSize="12sp"
+                android:textAllCaps="false"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="#E0E0E0"
                 android:textColor="#333333"/>
@@ -93,6 +100,7 @@
                 android:layout_height="36dp"
                 android:text="Social Reformers"
                 android:textSize="12sp"
+                android:textAllCaps="false"
                 android:backgroundTint="#E0E0E0"
                 android:textColor="#333333"/>
 
@@ -103,7 +111,7 @@
         android:id="@+id/recyclerViewHeroes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"
+        android:paddingTop="8dp"
         android:clipToPadding="false"/>
 
 </LinearLayout>
