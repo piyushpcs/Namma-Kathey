@@ -73,6 +73,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
 
+        findViewById<View>(R.id.btnNotifications)?.setOnClickListener {
+            // Optional: Show a toast or simple notification list
+            android.widget.Toast.makeText(this, "No new stories today! 🔔", android.widget.Toast.LENGTH_SHORT).show()
+        }
+
         findViewById<View>(R.id.tvViewMap)?.setOnClickListener {
             startActivity(Intent(this, DistrictMapActivity::class.java))
         }
@@ -116,7 +121,7 @@ class MainActivity : AppCompatActivity() {
         val tvExploreAll = findViewById<TextView>(R.id.tvExploreAll)
         val tvDistrictMap = findViewById<TextView>(R.id.tvDistrictMap)
         val tvQuiz = findViewById<TextView>(R.id.tvQuiz)
-        val tvTimeline = findViewById<TextView>(R.id.tvTimeline)
+        val btnTimeline = findViewById<Button>(R.id.btnTimeline)
         val btnProfile = findViewById<TextView>(R.id.btnProfile)
         val btnAllHeroes = findViewById<Button>(R.id.btnAllHeroes)
 
@@ -134,6 +139,7 @@ class MainActivity : AppCompatActivity() {
             tvDistrictMap.text = "ಮೈಸೂರು"
             tvQuiz.text = "ಉಡುಪಿ"
             btnAllHeroes.text = "ಎಲ್ಲಾ ವೀರರನ್ನು ಅನ್ವೇಷಿಸಿ →"
+            btnTimeline.text = "ಇತಿಹಾಸ ಕಾಲಸೂಚಿ 📜"
         } else {
             tvGreeting.text = "Namaskara! 👋"
             tvAppName.text = "Namma Kathey"
@@ -148,6 +154,7 @@ class MainActivity : AppCompatActivity() {
             tvDistrictMap.text = "Mysuru"
             tvQuiz.text = "Udupi"
             btnAllHeroes.text = "Explore All Heroes →"
+            btnTimeline.text = "View History Timeline 📜"
         }
     }
 
